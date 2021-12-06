@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./assets/style/bootstrap.css" />
     <link rel="stylesheet" href="./assets/style/all.css" />
   </head>
-
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <body>
     <div class="container">
       <nav
@@ -53,7 +53,7 @@
                 <a class="nav-link px-md-10 py-md-8" href="#">運送方式</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link px-md-10 py-md-8 active" href="#"
+                <a class="nav-link px-md-10 pe-md-0 py-md-8 active" href="#"
                   >立即預訂</a
                 >
               </li>
@@ -62,9 +62,65 @@
         </div>
       </nav>
     </div>
-    <div class="bg-primary" style="height: 40px"></div>
+    <div class="bg-primary mb-md-13" style="height: 40px"></div>
 
     
+<div class="container">
+  <div class="row mb-13 mt-13 mt-md-0">
+    <div class="col-md-3">
+      <select class="categorySelect form-select">
+        <option selected>DEFAULT</option>
+      </select>
+    </div>
+  </div>
+  <ul
+    class="
+      pdtList
+      list-unstyled
+      row row-cols-1 row-cols-md-2 row-cols-lg-4
+      g-5
+      mt-5 mt-md-0
+    "
+  ></ul>
+  <div class="row">
+    <div class="col-12">
+      <table class="table align-middle">
+        <thead>
+          <tr>
+            <th scope="col" style="width: 35%">品項</th>
+            <th scope="col" style="width: 20%">單價</th>
+            <th scope="col" style="width: 20%">數量</th>
+            <th scope="col" style="width: 20%">金額</th>
+            <th scope="col" style="width: 5%"></th>
+          </tr>
+        </thead>
+        <tbody class="cartList">
+          <tr class="tableCart">
+            <td scope="row" class="d-flex align-items-center">
+              <img
+                class="cartImg d-none d-md-block"
+                src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/xgI6wM3uUCpkEEcauvHs67BFjGqG6Qxa9JTfOZTys6C0yJjqw5c8nJuA31gX77YVf04kZotGP9ZFQU7hLXkuoaRwNSssScpFnzfyPzYKODuyhw2QJrT1bDSim7aOBryv.png"
+                alt=""
+              />
+              <h3 class="h4 d-inline-block ms-md-6 mb-0">
+                Antony 雙人床架／雙人加大
+              </h3>
+            </td>
+            <td>NT$12,000</td>
+            <td>1</td>
+            <td>NT$12,000</td>
+            <td>
+              <a class="#"
+                ><i class="fas fa-times" style="font-size: 24px"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
 
     <script src="./assets/js/vendors.js"></script>
     <script src="./assets/js/all.js"></script>

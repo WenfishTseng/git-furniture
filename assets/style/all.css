@@ -1,2 +1,68 @@
+@charset "UTF-8";
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+/* 全域 border box */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.top-10 {
+  top: 10%;
+}
+
+.start-85 {
+  left: 88%;
+}
+
+.card-img-top {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
+  height: 18.875rem;
+}
+
+.tableCart {
+  font-size: 20px;
+}
+
+@media screen and (max-width: 480px) {
+  .tableCart {
+    font-size: 14px;
+  }
+}
+
+.pdtBadge {
+  width: 5.5rem;
+  height: 2.75rem;
+  font-size: 1.25rem;
+  font-weight: normal;
+  line-height: 1.5;
+}
+
+@media screen and (max-width: 480px) {
+  .pdtBadge {
+    width: 4rem;
+    height: 2rem;
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+}
+
+.cartImg {
+  width: 5rem;
+  height: 5rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
+}
 
 /*# sourceMappingURL=all.css.map */
