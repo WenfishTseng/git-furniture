@@ -29,6 +29,15 @@ img {
   height: 18.875rem;
 }
 
+.btn-primary:hover {
+  background: #6a33ff;
+  border: 1px solid #6a33ff;
+}
+
+.btn-link:hover {
+  color: #6a33ff;
+}
+
 .tableCart {
   font-size: 20px;
 }
