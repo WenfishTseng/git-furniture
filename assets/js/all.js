@@ -16,14 +16,14 @@ var deleteBtn = document.querySelector(".deleteBtn"); // 監聽
 
 pdtList.addEventListener("click", function (e) {
   e.preventDefault;
-  if (e.target.nodeName != "A") return;
-  console.log(e.target.dataset.num);
+  if (e.target.nodeName != "BUTTON") return;
   addItemToCart(e.target.dataset.num);
 });
 categorySelect.addEventListener("change", function (e) {
   renderSelectData(e.target.value);
 });
 cartList.addEventListener("click", function (e) {
+  e.preventDefault;
   if (e.target.nodeName != "I") return;
   deleteCartId(e.target.dataset.cart);
 });
@@ -104,7 +104,7 @@ function renderCartData(cartData) {
   var total = 0; // 購物車商品
 
   cartData.forEach(function (item) {
-    str += "          \n    <tr class=\"tableCart\">\n            <td scope=\"row\" class=\"d-flex align-items-center\">\n              <img\n                class=\"cartImg d-none d-md-block\"\n                src=\"".concat(item.product.images, "\"\n                alt=\"").concat(item.product.title, "\"\n              />\n              <h3 class=\"h4 d-inline-block ms-md-6 mb-0\">\n                ").concat(item.product.title, "\n              </h3>\n            </td>\n            <td>NT$").concat(item.product.price, "</td>\n            <td>").concat(item.quantity, "</td>\n            <td>NT$").concat(item.product.price, "</td>\n            <td>\n              <a href=\"#\" class=\"btn btn-link\"\n                ><i data-cart=\"").concat(item.id, "\" class=\"fas fa-times\" style=\"font-size: 24px\"></i>\n              </a>\n            </td>\n          </tr>");
+    str += "          \n    <tr class=\"tableCart\">\n            <td scope=\"row\" class=\"d-flex align-items-center\">\n              <img\n                class=\"cartImg d-none d-md-block\"\n                src=\"".concat(item.product.images, "\"\n                alt=\"").concat(item.product.title, "\"\n              />\n              <h3 class=\"h4 d-inline-block ms-md-6 mb-0\">\n                ").concat(item.product.title, "\n              </h3>\n            </td>\n            <td>NT$").concat(item.product.price, "</td>\n            <td>").concat(item.quantity, "</td>\n            <td>NT$").concat(item.product.price, "</td>\n            <td>\n              <button href=\"#\" class=\"btn btn-link\"\n                ><i data-cart=\"").concat(item.id, "\" class=\"fas fa-times\" style=\"font-size: 24px\"></i>\n              </button>\n            </td>\n          </tr>");
     total += item.quantity * item.product.price;
   });
   cartList.innerHTML = str;
@@ -144,7 +144,7 @@ function renderSelectData(category) {
 function renderPdtData(data) {
   var str = "";
   data.forEach(function (item) {
-    str += "\n        <li class=\"col mt-0 mb-11\">\n      <div class=\"card h-100 border-0 position-relative\">\n        <span\n          class=\"\n            pdtBadge\n            badge\n            rounded-0\n            bg-primary\n            position-absolute\n            top-10\n            start-85\n            translate-middle\n          \"\n          >\u65B0\u54C1</span\n        >\n        <img\n          src=\"".concat(item.images, "\"\n          class=\"card-img-top\"\n          alt=\"").concat(item.title, "\"\n        />\n        <div class=\"card-body p-0\">\n          <a class=\"btn btn-primary w-100 rounded-0 fz-4 py-3 mb-3\" href=\"#\" data-num=\"").concat(item.id, "\"\n            >\u52A0\u5165\u8CFC\u7269\u8ECA</a\n          >\n          <h3 class=\"h4\" data-category=\"").concat(item.category, "\">").concat(item.title, "</h3>\n          <p class=\"h4 text-decoration-line-through mb-0\">NT$").concat(item.origin_price, "</p>\n          <p class=\"h2 fw-bold mb-0\">NT$").concat(item.price, "</p>\n        </div>\n      </div>\n    </li>\n    ");
+    str += "\n        <li class=\"col mt-0 mb-11\">\n      <div class=\"card h-100 border-0 position-relative\">\n        <span\n          class=\"\n            pdtBadge\n            badge\n            rounded-0\n            bg-primary\n            position-absolute\n            top-10\n            start-85\n            translate-middle\n          \"\n          >\u65B0\u54C1</span\n        >\n        <img\n          src=\"".concat(item.images, "\"\n          class=\"card-img-top\"\n          alt=\"").concat(item.title, "\"\n        />\n        <div class=\"card-body p-0\">\n          <button class=\"btn btn-primary w-100 rounded-0 fz-4 py-3 mb-3\" href=\"#\" data-num=\"").concat(item.id, "\"\n            >\u52A0\u5165\u8CFC\u7269\u8ECA</button\n          >\n          <h3 class=\"h4\" data-category=\"").concat(item.category, "\">").concat(item.title, "</h3>\n          <p class=\"h4 text-decoration-line-through mb-0\">NT$").concat(item.origin_price, "</p>\n          <p class=\"h2 fw-bold mb-0\">NT$").concat(item.price, "</p>\n        </div>\n      </div>\n    </li>\n    ");
   });
   pdtList.innerHTML = str;
 } // 將單一商品加入購物車列表
@@ -165,4 +165,76 @@ function addItemToCart(cartId) {
     console.log(error.response.data);
   });
 }
+
+var swiper = new Swiper(".mySwiper", {
+  slidesPerView: 1,
+  spaceBetween: 10,
+  autoplay: {
+    delay: 3500,
+    disableOnInteraction: false
+  },
+  breakpoints: {
+    "@0.00": {
+      slidesPerView: 1,
+      spaceBetween: 10
+    },
+    "@0.75": {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+    "@1.00": {
+      slidesPerView: 3,
+      spaceBetween: 40
+    }
+  }
+});
+var myForm = document.getElementById("myForm");
+var sendBtn = document.querySelector(".sendBtn");
+var constraints = {
+  name: {
+    // 必填
+    presence: {
+      message: "必填"
+    }
+  },
+  telephone: {
+    presence: {
+      message: "必填"
+    }
+  },
+  email: {
+    presence: {
+      message: "必填"
+    }
+  },
+  address: {
+    presence: {
+      message: "必填"
+    }
+  },
+  trade: {
+    presence: {
+      message: "必填"
+    }
+  }
+};
+var inputs = document.querySelectorAll("input");
+console.log("inputs", inputs);
+var tempForm = [];
+sendBtn.addEventListener("click", function () {
+  // 清除原本的表格欄位
+  tempForm.forEach(function (item) {
+    document.querySelector(".".concat(item)).textContent = "";
+  });
+  var errors = validate(myForm, constraints); //呈現在畫面上
+
+  if (errors) {
+    Object.keys(errors).forEach(function (keys) {
+      document.querySelector(".".concat(keys)).textContent = "必填!";
+      tempForm.push(keys);
+    });
+  }
+
+  console.log(errors);
+});
 //# sourceMappingURL=all.js.map
