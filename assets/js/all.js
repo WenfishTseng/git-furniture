@@ -1,7 +1,6 @@
 "use strict";
 
-$(function () {
-  console.log("Hello Bootstrap5");
+$(function () {// console.log("Hello Bootstrap5");
 }); // variables
 
 var api_path = "yurit630";
@@ -12,7 +11,9 @@ var allProducts = []; //dom
 var pdtList = document.querySelector(".pdtList");
 var categorySelect = document.querySelector(".categorySelect");
 var cartList = document.querySelector(".cartList");
-var deleteBtn = document.querySelector(".deleteBtn"); // 監聽
+var deleteBtn = document.querySelector(".deleteBtn");
+var myForm = document.getElementById("myForm");
+var sendBtn = document.querySelector(".sendBtn"); // 監聽
 
 pdtList.addEventListener("click", function (e) {
   e.preventDefault;
@@ -48,7 +49,7 @@ function deleteAllCarts() {
     }
   })["catch"](function (error) {
     // 失敗會回傳的內容
-    console.log(error);
+    console.log("deleteAllCarts", error);
   });
 } // 刪除購物車特定產品
 
@@ -108,7 +109,6 @@ function renderCartData(cartData) {
     total += item.quantity * item.product.price;
   });
   cartList.innerHTML = str;
-  console.log("total", total);
   var totalAmount = document.querySelector(".totalAmount");
   totalAmount.innerHTML = "NT$ ".concat(total);
 } // 渲染Select : 種類
@@ -129,7 +129,6 @@ function renderSelectData(category) {
   if (category !== "all") {
     filterAry = allProducts.filter(function (item) {
       if (category === item.category) {
-        console.log(item.category);
         return item;
       }
     });
@@ -188,8 +187,6 @@ var swiper = new Swiper(".mySwiper", {
     }
   }
 });
-var myForm = document.getElementById("myForm");
-var sendBtn = document.querySelector(".sendBtn");
 var constraints = {
   name: {
     // 必填
@@ -218,10 +215,28 @@ var constraints = {
     }
   }
 };
-var inputs = document.querySelectorAll("input");
-console.log("inputs", inputs);
+var inputs = document.querySelectorAll("input, select[name=trade]");
 var tempForm = [];
 sendBtn.addEventListener("click", function () {
+  checkInputs();
+  var userObj = {
+    name: "default",
+    tel: "default",
+    email: "default",
+    address: "default",
+    payment: "default"
+  };
+  inputs.forEach(function (item) {
+    if (item.name === "trade") userObj["payment"] = item.value;
+    if (item.name === "telephone") userObj["tel"] = item.value;
+    Object.keys(userObj).forEach(function (keys) {
+      if (keys === item.name) userObj[item.name] = item.value;
+    });
+  });
+  sendCartOrder(userObj);
+});
+
+function checkInputs() {
   // 清除原本的表格欄位
   tempForm.forEach(function (item) {
     document.querySelector(".".concat(item)).textContent = "";
@@ -236,5 +251,23 @@ sendBtn.addEventListener("click", function () {
   }
 
   console.log(errors);
-});
+}
+
+function sendCartOrder(userData) {
+  var url = "https://livejs-api.hexschool.io/api/livejs/v1/customer/".concat(api_path, "/orders");
+  axios.post(url, {
+    data: {
+      user: userData
+    }
+  }).then(function (response) {
+    console.log(response.data);
+    renderCartData([]);
+    alert("訂單完成!");
+    document.querySelectorAll("input").forEach(function (item) {
+      item.value = "";
+    });
+  })["catch"](function (error) {
+    console.log(error.response.data);
+  });
+}
 //# sourceMappingURL=all.js.map

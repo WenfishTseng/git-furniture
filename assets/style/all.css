@@ -61,6 +61,15 @@ img {
   overflow-x: hidden;
 }
 
+.hero {
+  color: #ffffff;
+  height: 26.25rem;
+  background-image: url("https://github.com/hexschool/js-training/blob/main/%E7%AC%AC%E4%B9%9D%E9%80%B1%E4%B8%BB%E7%B7%9A%E4%BB%BB%E5%8B%99%E5%9C%96%E5%BA%AB/3ewLAKn.png?raw=true");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 100%;
+}
+
 .pdtBadge {
   width: 5.5rem;
   height: 2.75rem;
@@ -97,11 +106,17 @@ img {
   font-weight: 900;
   content: "\f0da";
   font-size: 24px;
-  left: 155px;
+  left: 135%;
   top: 50%;
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
+}
+
+@media (max-width: 992px) {
+  .shippingMethod::after {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=all.css.map */
