@@ -270,4 +270,9 @@ function sendCartOrder(userData) {
     console.log(error.response.data);
   });
 }
+"use strict";
+
+$(function () {
+  console.log("bg.js");
+});
 //# sourceMappingURL=all.js.map
