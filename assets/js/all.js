@@ -272,7 +272,8 @@ function sendCartOrder(userData) {
 }
 "use strict";
 
-$(function () {
-  console.log("bg.js");
-});
+// $(function () {
+//   console.log("bg.js");
+// });
+console.log("bg.js!!!!!!!!!!!");
 //# sourceMappingURL=all.js.map
