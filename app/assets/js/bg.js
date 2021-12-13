@@ -1,3 +1,5 @@
-$(function () {
-  console.log("bg.js");
-});
+// $(function () {
+//   console.log("bg.js");
+// });
+
+console.log("bg.js!!!!!!!!!!!");
