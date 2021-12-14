@@ -1,7 +1,3 @@
-$(function () {
-  // console.log("Hello Bootstrap5");
-});
-
 // variables
 const api_path = "yurit630";
 const token = "pI1fp1SJC0XQfpViyEBA5VJlqkv2";

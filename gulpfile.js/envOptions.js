@@ -1,11 +1,11 @@
-const srcPath = './app';
-const distPath = './dist';
-const nodePath = './node_modules';
+const srcPath = "./app";
+const distPath = "./dist";
+const nodePath = "./node_modules";
 
 let envOptions = {
-  string: 'env',
+  string: "env",
   default: {
-    env: 'dev',
+    env: "dev",
   },
   copyFile: {
     src: [
@@ -20,12 +20,8 @@ let envOptions = {
     path: distPath,
   },
   html: {
-    src: [
-      `${srcPath}/**/*.html`,
-    ],
-    ejsSrc: [
-      `${srcPath}/**/*.ejs`,
-    ],
+    src: [`${srcPath}/**/*.html`],
+    ejsSrc: [`${srcPath}/**/*.ejs`],
     path: distPath,
   },
   style: {
@@ -35,17 +31,13 @@ let envOptions = {
       `!${srcPath}/assets/style/**/_variables.scss`,
       `!${srcPath}/assets/style/**/bootstrap.scss`,
     ],
-    bsSrc: [
-      `${srcPath}/assets/style/helpers/bootstrap.scss`,
-    ],
-    outputStyle: 'expanded',
+    bsSrc: [`${srcPath}/assets/style/helpers/bootstrap.scss`],
+    outputStyle: "expanded",
     path: `${distPath}/assets/style`,
   },
   javascript: {
-    src: [
-      `${srcPath}/assets/js/**/*.js`
-    ],
-    concat: 'all.js',
+    src: [`${srcPath}/assets/js/**/*.js`],
+    // concat: 'all.js',
     path: `${distPath}/assets/js`,
   },
   vendors: {
@@ -53,13 +45,11 @@ let envOptions = {
       `${nodePath}/jquery/dist/jquery.slim.min.js`,
       `${nodePath}/bootstrap/dist/js/bootstrap.bundle.min.js`, // 已包含 popper.js
     ],
-    concat: 'vendors.js',
+    concat: "vendors.js",
     path: `${distPath}/assets/js`,
   },
   img: {
-    src: [
-      `${srcPath}/assets/images/**/*`,
-    ],
+    src: [`${srcPath}/assets/images/**/*`],
   },
   clean: {
     src: distPath,
