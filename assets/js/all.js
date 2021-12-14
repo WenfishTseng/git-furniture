@@ -1,8 +1,6 @@
 "use strict";
 
-$(function () {// console.log("Hello Bootstrap5");
-}); // variables
-
+// variables
 var api_path = "yurit630";
 var token = "pI1fp1SJC0XQfpViyEBA5VJlqkv2";
 var categoryAry = [];
@@ -270,10 +268,3 @@ function sendCartOrder(userData) {
     console.log(error.response.data);
   });
 }
-"use strict";
-
-// $(function () {
-//   console.log("bg.js");
-// });
-console.log("bg.js!!!!!!!!!!!");
-//# sourceMappingURL=all.js.map

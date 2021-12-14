@@ -70,6 +70,12 @@ img {
   background-position: 50% 100%;
 }
 
+@media screen and (max-width: 767px) {
+  .hero {
+    height: 20rem;
+  }
+}
+
 .pdtBadge {
   width: 5.5rem;
   height: 2.75rem;
